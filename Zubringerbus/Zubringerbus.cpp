@@ -1,11 +1,33 @@
 // Zubringerbus.cpp : Diese Datei enthält die Funktion "main". Hier beginnt und endet die Ausführung des Programms.
-//
+// https://www.programmieraufgaben.ch/aufgabe/zubringerbus/uzibjyek
 
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    short uhrzeit = 00;
+    short mins = 00;
+    short stunden = 00; 
+    cout << "Wie viel ist es? (Format hhmm) ";
+    cin >> uhrzeit;
+
+    mins = uhrzeit % 100;
+    stunden = (uhrzeit - mins) / 100;
+    cout << "Uhrzeit jetzt [Stunde: " << stunden << " Minuten: " << mins << "]" << endl;
+
+    mins = mins + (30 - mins % 30);
+ 
+    stunden = stunden + mins / 60;
+    stunden = stunden % 24;
+    mins = mins % 60;
+    cout << "Uhrzeit next Bus [Stunde: " << stunden << " Minuten: " << mins << "]" << endl;
+
+    uhrzeit = stunden * 100 + mins;
+
+    cout << "naechster Bus: " << uhrzeit << endl;
+
 }
 
 // Programm ausführen: STRG+F5 oder Menüeintrag "Debuggen" > "Starten ohne Debuggen starten"
